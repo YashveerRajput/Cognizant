@@ -1,0 +1,31 @@
+public class FinancialForecasting {
+
+    public static double forecast(double currentValue,
+                                  double growthRate,
+                                  int years) {
+
+        // base Case
+        if (years == 0) {
+            return currentValue;
+        }
+
+        // recursive Call
+        return forecast(currentValue * (1 + growthRate),
+                        growthRate,
+                        years - 1);
+    }
+
+    public static void main(String[] args) {
+
+        double currentValue = 10000;
+        double growthRate = 0.10;
+        int years = 3;
+
+        double futureValue =
+                forecast(currentValue, growthRate, years);
+
+        System.out.println(
+                "Predicted Future Value "+
+                futureValue);
+    }
+}
